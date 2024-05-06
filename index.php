@@ -8,6 +8,17 @@ require_once __DIR__ . '/Model/PremiumUser.php';
 require_once __DIR__ . '/Model/Address.php';
 require_once __DIR__ . '/data/db.php';
 
+
+// gestione del trait
+// $dipendente = new Employee('Giovanni', 'Bianchi', 'bianchi@gmail.com', new Address('Via Roma', 'Roma', '00100'), 3);
+// $dipendente->lat = 'XXXXXX';
+// $dipendente->lng = 'YYYYYYY';
+// var_dump($dipendente->getCoordinates());
+
+// Generazione di un ERRORE PHP
+//throw new Exception('Ciao sono un errore PHP');
+
+
 $db[1]->setAge(80);
 // propiretà statica
 // si accede dalla classe e non dall'istanza e la sibìntassi è:
@@ -55,6 +66,24 @@ $db[1]->setAge(80);
 
 // var_dump($nuovo_dipendente->level);
 // var_dump($nuovo_utente->level);  // null 
+
+
+// ERRORI
+// stampo l'errore se fallisce la creazione del nuovo utente
+try {
+  $ugo = new User('Ugo', 'Deughi', 'ugo@gmail.com', new Address('Via delle Margherite', 'Roma', '00100'));
+} catch (Exception $e) {
+  var_dump($e->getMessage());
+}
+
+// stampo l'errore se fallisce il settaggio dell'età
+try {
+  $ugo->setAge(200);
+} catch (Exception $e) {
+  var_dump($e->getMessage());
+}
+
+var_dump($ugo);
 
 ?>
 

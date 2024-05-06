@@ -1,7 +1,11 @@
 <?php
 
+require_once __DIR__ . '/Position.php';
+
 // class NomeClasseFiglio extends NomeClasseMadre
 class Employee extends User {
+  use Position;
+  
   public $level;
 
   // ricreo il costruttore "gemello" della classe genitore con in più (opzionale) le sue proprità
